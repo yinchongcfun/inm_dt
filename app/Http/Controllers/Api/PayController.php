@@ -24,7 +24,7 @@ class PayController extends Controller
                 } else {
                     $alipayService->aliPay($order);
                 }
-            } catch (\Exception $exception) {
+            }  catch (\Exception $exception) {
                 info($exception->getMessage());
                 return '支付异常';
             }
