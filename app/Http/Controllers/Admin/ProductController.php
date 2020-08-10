@@ -16,8 +16,13 @@ class ProductController extends BaseController
      * User: cfun
      * Date: 2020/8/4
      */
-    public function create(ProductRequest $productRequest)
+    public function create(Request $productRequest)
     {
+        $productRequest=[
+            'product_name'=>$productRequest->product_name??'',
+            'price'=>$productRequest->price,
+            'img'=>$productRequest->img,
+        ];
         $product_info = ProductModel::create($productRequest);
         if ($product_info) {
             return $this->output($product_info, '请求成功', STATUS_OK);
@@ -34,7 +39,7 @@ class ProductController extends BaseController
     public function status(Request $request)
     {
         $status = $request->status;
-        $product_info = ProductModel::where('id', $request->id)->update(['status',$status]);
+        $product_info = ProductModel::where('id', $request->product_id)->update(['status',$status]);
         if ($product_info) {
             return $this->output(null, '请求成功', STATUS_OK);
         } else {

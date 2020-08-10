@@ -18,7 +18,9 @@ Route::get('/', function () {
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
-    Route::get('login', ['uses' => 'LoginController@login']);
+    Route::Post('login', ['uses' => 'LoginController@login']);
+
+    Route::Post('product/create', ['uses' => 'ProductController@create']);
 
     Route::get('order/list', ['uses' => 'OrderController@orderList']);
 

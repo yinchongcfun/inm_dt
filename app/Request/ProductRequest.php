@@ -36,8 +36,8 @@ class ProductRequest extends BaseRequest
     public function messages()
     {
         $message = [
-            'product_name.required' => '店铺id必须填写',
-            'img.required' => '密码必须填写',
+            'product_name.required' => '商品名称必须填写',
+            'img.required' => '图片必须上传',
             'price.required' => '价格必填',
         ];
 
